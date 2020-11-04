@@ -27,15 +27,15 @@ setup(
                  'Topic :: Software Development :: Libraries :: Python Modules',
                  'Programming Language :: Python :: 3.4'],
     install_requires=[
-        'Flask',
+        'Werkzeug<1.0.0',
+        'flask-babel',
+        'flask-mako',
+        'flask-reverse-proxy-fix',
+        'flask',
         'pyjwkest',
-        'Flask-Babel',
-        'Flask-Mako',
         'dataset',
         'gunicorn',
         'python-dateutil',
-        'flask-reverse-proxy-fix',
-        'Werkzeug<1.0.0'
     ],
     zip_safe=False,
     message_extractors={'.': [
