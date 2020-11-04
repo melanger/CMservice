@@ -3,7 +3,7 @@ import logging
 from uuid import uuid4
 
 import pkg_resources
-from flask import abort, jsonify
+from flask import abort, jsonify, url_for
 from flask import redirect
 from flask import request
 from flask import session
@@ -112,7 +112,7 @@ def render_consent(language: str, requester_name: str, locked_attr: list, releas
         state=state,
         released_claims=released_claims,
         locked_claims=locked_claims,
-        form_action='/set_language',
+        form_action=url_for('consent_service.set_language'),
         language=language,
         requester_name=requester_name,
         months=months,

@@ -59,7 +59,7 @@
 </span>
 <br>
 
-<form name="allow_consent" id="allow_consent_form" action="/save_consent" method="GET"
+<form name="allow_consent" id="allow_consent_form" action="${url_for("consent_service.save_consent")}" method="GET"
       style="float: left">
     <select name="month" id="month" class="dropdown-menu-right">
         % for month in months:
