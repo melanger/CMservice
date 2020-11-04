@@ -33,7 +33,9 @@ setup(
         'Flask-Mako',
         'dataset',
         'gunicorn',
-        'python-dateutil'
+        'python-dateutil',
+        'flask-reverse-proxy-fix',
+        'Werkzeug<1.0.0'
     ],
     zip_safe=False,
     message_extractors={'.': [

@@ -13,6 +13,7 @@ from mako.lookup import TemplateLookup
 from cmservice.consent_manager import ConsentManager
 from cmservice.database import ConsentDB, ConsentRequestDB, ConsentDatasetDB, ConsentRequestDatasetDB
 
+from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 
 def import_database_class(db_module_name: str) -> type:
     path, cls = db_module_name.rsplit('.', 1)
@@ -66,6 +67,9 @@ def create_app(config: dict = None):
         app.config.update(config)
     else:
         app.config.from_envvar("CMSERVICE_CONFIG")
+
+    if app.config.get('REVERSE_PROXY_PATH', None):
+        ReverseProxyPrefixFix(app)
 
     mako = MakoTemplates()
     mako.init_app(app)
